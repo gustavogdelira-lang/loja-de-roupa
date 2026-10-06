@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: guardias-ponto-de-ajuda
+    runtime: node
+    rootDir: projeto-completo
+    plan: free             # gratuito, serve para apresentar (dorme por inatividade). Para uso real, troque por: starter
+    buildCommand: echo "sem dependências para instalar"
+    startCommand: node server.js
+    healthCheckPath: /api/config
+    envVars:
+      - key: PAINEL_SENHA
+        sync: false        # você digita a senha no painel da Render
+      - key: NOME_LOCAL
+        sync: false
+      - key: LOJA_NOME
+        value: Trama Moda
+      - key: SEGREDO
+        generateValue: true
